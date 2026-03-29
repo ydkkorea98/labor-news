@@ -5,624 +5,699 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>[노무 뉴스] 2026년 03월 29일 주요 기사</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-      background: #f4f6f9;
-      color: #2d3748;
-      line-height: 1.6;
+      background: #f5f0e8;
+      color: #1a1a1a;
+      font-family: 'Noto Serif KR', 'Georgia', serif;
     }
-    .wrapper {
-      max-width: 680px;
+
+    .page {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 24px 16px;
+      background: #fdfaf4;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      padding: 0 0 48px;
     }
 
-    /* Header */
-    .header {
-      background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
-      border-radius: 12px 12px 0 0;
-      padding: 32px 36px;
-      text-align: center;
-    }
-    .header-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      color: #fff;
+    /* ── 상단 날짜/호수 바 ── */
+    .top-bar {
+      border-bottom: 1px solid #aaa;
+      padding: 8px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Noto Sans KR', sans-serif;
       font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-    }
-    .header h1 {
-      color: #fff;
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .header .date {
-      color: rgba(255,255,255,0.75);
-      font-size: 13px;
+      color: #555;
     }
 
-    /* Stats bar */
+    /* ── 마스트헤드 ── */
+    .masthead {
+      padding: 20px 36px 14px;
+      text-align: center;
+      border-bottom: 4px double #1a1a1a;
+    }
+    .masthead-title {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+    .masthead-sub {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 12px;
+      color: #555;
+      margin-top: 6px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ── 헤드라인 배너 ── */
+    .headline-banner {
+      background: #1a1a1a;
+      color: #fdfaf4;
+      text-align: center;
+      padding: 8px 36px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+
+    /* ── 통계 바 ── */
     .stats-bar {
-      background: #2b6cb0;
-      border-radius: 0;
-      padding: 12px 36px;
       display: flex;
       justify-content: center;
-      gap: 32px;
+      gap: 40px;
+      padding: 12px 36px;
+      border-bottom: 2px solid #1a1a1a;
+      font-family: 'Noto Sans KR', sans-serif;
     }
-    .stat-item {
-      text-align: center;
+    .stat-item { text-align: center; }
+    .stat-number { font-size: 22px; font-weight: 700; color: #1a1a1a; }
+    .stat-label { font-size: 10px; color: #777; letter-spacing: 1px; }
+
+    /* ── 콘텐츠 영역 ── */
+    .content {
+      padding: 0 36px;
     }
-    .stat-number {
-      color: #fff;
-      font-size: 20px;
+
+    /* ── 섹션 제목 ── */
+    .section-label {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 10px;
       font-weight: 700;
-    }
-    .stat-label {
-      color: rgba(255,255,255,0.7);
-      font-size: 11px;
-    }
-
-    /* Body */
-    .body {
-      background: #fff;
-      padding: 32px 36px;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      background: #1a1a1a;
+      display: inline-block;
+      padding: 3px 10px;
+      margin: 24px 0 16px;
     }
 
-    .section-title {
-      font-size: 13px;
+    /* ── 기사 그리드 ── */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    /* 첫 번째 기사는 전폭 */
+    .article-card:first-child {
+      grid-column: 1 / -1;
+      border-bottom: 2px solid #1a1a1a;
+      padding-bottom: 20px;
+      margin-bottom: 4px;
+    }
+    .article-card:first-child .article-title {
+      font-size: 26px;
+      line-height: 1.3;
+    }
+
+    .article-card {
+      padding: 16px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .articles-grid .article-card:nth-child(odd):not(:first-child) {
+      padding-right: 20px;
+      border-right: 1px solid #ccc;
+    }
+    .articles-grid .article-card:nth-child(even) {
+      padding-left: 20px;
+    }
+
+    /* 중요도 태그 */
+    .importance-tag {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 9px;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #718096;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e2e8f0;
-    }
-
-    /* Article card */
-    .article-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-      transition: box-shadow 0.2s;
-      position: relative;
-    }
-    .article-card:hover {
-      box-shadow: 0 4px 16px rgba(43, 108, 176, 0.12);
-    }
-
-    .article-rank {
-      position: absolute;
-      top: -1px;
-      left: -1px;
-      background: #2b6cb0;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      width: 28px;
-      height: 28px;
-      border-radius: 9px 0 8px 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .importance-badge {
+      padding: 2px 7px;
+      border: 1px solid currentColor;
       display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-left: 8px;
-      vertical-align: middle;
+      margin-bottom: 8px;
     }
-    .importance-상 { background: #fed7d7; color: #c53030; }
-    .importance-중 { background: #fefcbf; color: #b7791f; }
-    .importance-하 { background: #e2e8f0; color: #718096; }
+    .importance-상 { color: #8b0000; border-color: #8b0000; }
+    .importance-중 { color: #6b4c00; border-color: #6b4c00; }
+    .importance-하 { color: #444; border-color: #444; }
 
     .article-title {
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 700;
-      color: #1a365d;
-      margin: 10px 0 8px;
-      line-height: 1.5;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      color: #1a1a1a;
     }
     .article-title a {
       color: inherit;
       text-decoration: none;
     }
-    .article-title a:hover {
-      color: #2b6cb0;
-      text-decoration: underline;
-    }
+    .article-title a:hover { text-decoration: underline; }
 
-    .article-meta {
-      font-size: 12px;
-      color: #718096;
-      margin-bottom: 12px;
+    .article-byline {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 10px;
+      color: #777;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
       gap: 8px;
     }
-    .source-badge {
-      display: inline-block;
-      background: #ebf8ff;
-      color: #2b6cb0;
-      font-size: 11px;
+    .byline-source {
       font-weight: 700;
-      padding: 2px 10px;
-      border-radius: 20px;
-      border: 1px solid #bee3f8;
+      color: #1a1a1a;
+    }
+    .byline-source a {
+      color: inherit;
       text-decoration: none;
+      border-bottom: 1px solid #aaa;
     }
-    .source-badge:hover {
-      background: #bee3f8;
-    }
+    .byline-source a:hover { border-color: #1a1a1a; }
 
-    .article-summary {
+    .article-body {
       font-size: 13px;
-      color: #4a5568;
-      background: #f7fafc;
-      border-left: 3px solid #2b6cb0;
-      padding: 10px 14px;
-      border-radius: 0 6px 6px 0;
+      line-height: 1.8;
+      color: #333;
       white-space: pre-line;
     }
 
     .article-keywords {
       margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
     }
-    .keyword-tag {
-      display: inline-block;
-      background: #ebf8ff;
-      color: #2b6cb0;
+    .kw-tag {
+      font-family: 'Noto Sans KR', sans-serif;
       font-size: 10px;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-right: 4px;
-      margin-top: 4px;
+      color: #555;
+      background: #ede8de;
+      padding: 2px 7px;
+      border-radius: 2px;
     }
 
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 24px;
-      color: #a0aec0;
-      font-size: 11px;
-      line-height: 1.8;
-    }
-    .footer a { color: #a0aec0; }
-
-    .divider {
+    /* ── 구분선 ── */
+    .divider-thick {
       border: none;
-      border-top: 1px solid #e2e8f0;
-      margin: 24px 0;
+      border-top: 3px solid #1a1a1a;
+      margin: 0;
+    }
+    .divider-thin {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 8px 0;
     }
 
-    /* Empty state */
+    /* ── 하단 푸터 ── */
+    .footer {
+      margin-top: 32px;
+      border-top: 3px double #1a1a1a;
+      padding: 16px 36px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 10px;
+      color: #777;
+    }
+
+    /* ── 빈 상태 ── */
     .empty-state {
       text-align: center;
-      padding: 48px 24px;
-      color: #a0aec0;
+      padding: 60px 24px;
+      color: #aaa;
+      font-family: 'Noto Sans KR', sans-serif;
     }
-    .empty-state .emoji { font-size: 40px; margin-bottom: 12px; }
+
+    @media (max-width: 600px) {
+      .masthead-title { font-size: 36px; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .articles-grid .article-card:nth-child(odd):not(:first-child) {
+        padding-right: 0;
+        border-right: none;
+      }
+      .articles-grid .article-card:nth-child(even) { padding-left: 0; }
+      .content { padding: 0 20px; }
+      .top-bar, .footer { padding: 8px 20px; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="header">
-      <div class="header-badge">노무 뉴스 다이제스트</div>
-      <h1>오늘의 노무 관련 주요 기사</h1>
-      <div class="date">2026년 03월 29일 기준</div>
+<div class="page">
+
+  <!-- 상단 바 -->
+  <div class="top-bar">
+    <span>2026년 03월 29일 · 제2026호</span>
+    <span>노무관리 전문 뉴스 다이제스트</span>
+    <span>LLM: llama-3.3-70b-versatile</span>
+  </div>
+
+  <!-- 마스트헤드 -->
+  <div class="masthead">
+    <div class="masthead-title">노무 신문</div>
+    <div class="masthead-sub">Labor &amp; HR Daily Digest &nbsp;|&nbsp; AI-Curated</div>
+  </div>
+
+  <!-- 헤드라인 배너 -->
+  <div class="headline-banner">
+    오늘의 노무·노동 주요 기사 10선 &nbsp;·&nbsp; 수집 37건 중 LLM 선별
+  </div>
+
+  <!-- 통계 바 -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">10</div>
+      <div class="stat-label">선별 기사</div>
     </div>
-
-    <div class="stats-bar">
-      <div class="stat-item">
-        <div class="stat-number">10</div>
-        <div class="stat-label">선별 기사</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">36</div>
-        <div class="stat-label">수집 기사</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">8</div>
-        <div class="stat-label">출처</div>
-      </div>
+    <div class="stat-item">
+      <div class="stat-number">37</div>
+      <div class="stat-label">수집 기사</div>
     </div>
-
-    <div class="body">
-      <div class="section-title">LLM 선별 주요 기사</div>
-
-      
-        
-        <div class="article-card">
-          <div class="article-rank">1</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-상">중요</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="https://www.khan.co.kr/article/202603292048015" target="_blank">노동위, 헤어디자이너 근로자성 첫 인정</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="https://www.khan.co.kr/article/202603292048015" target="_blank">경향신문</a>
-            
-            <span>2026.03.29 20:48</span>
-            
-            <a href="https://www.khan.co.kr/article/202603292048015" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">노동위, 헤어디자이너 근로자성 첫 인정
-충남지방노동위원회는 지난달 23일 인턴 A씨가 미용실을 상대로 낸 부당해고 구제신청 사건에서 &#34;헤어디자이너는 독립사업자가 아니라 근로기준법상 근로자로 보는 것이 타당하다&#34;고 판단했다.
-노동계에 따르면 충남지노위는 &#34;헤어디자이너는 근로자&#34;라고 판단한 사례는 이번이 처음이다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 근로기준법</span>
-            
-          </div>
-          
-        </div>
-        
-        <div class="article-card">
-          <div class="article-rank">2</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-상">중요</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="https://www.hani.co.kr/arti/society/labor/1251647.html" target="_blank">“헤어디자이너도 노동자”…지노위, 미용실 원장 ‘사용자성’ 인정</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="https://www.hani.co.kr/arti/society/labor/1251647.html" target="_blank">한겨레</a>
-            
-            <span>2026.03.29 18:58</span>
-            
-            <a href="https://www.hani.co.kr/arti/society/labor/1251647.html" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">지노위, 미용실 원장 ‘사용자성’ 인정
-원장이 두 지점의 채용을 관리하는 등 실질적인 대표 역할을 하는 가운데, 인턴들은 두 곳을 오가며 일했다.
-하은성 노무사(충남노동권익센터 권리구제단)는 &#34;고의적인 사업장들을 규제할 수 있는 입법이 필요하다&#34;며 &#34;노동자들의 권익을 보호하기 위한 법적 근거가 마련돼야 한다&#34;고 말했다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 노무관리</span>
-            
-          </div>
-          
-        </div>
-        
-        <div class="article-card">
-          <div class="article-rank">3</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-상">중요</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="https://www.dkilbo.com/news/articleView.html?idxno=538942" target="_blank">5월 1일 노동절 법정 공휴일 지정 추진…행안소위 통과</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="https://www.dkilbo.com/news/articleView.html?idxno=538942" target="_blank">dkilbo</a>
-            
-            <span>2026.03.29 19:40</span>
-            
-            <a href="https://www.dkilbo.com/news/articleView.html?idxno=538942" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">5월 1일 노동절 법정 공휴일 지정 추진…행안소위 통과
-노동절은 1994년 유급휴일로 법제화됐지만 근로기준법상 근로자가 아닌 공무원, 교사, 택배기사 등 특수고용직 종사자에게는 휴일이 적용되지 않았다.
-이 때문에 동일한 노동절에도 직군별 휴무 여부가 달라 형평성 논란이 있다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 근로기준법</span>
-            
-          </div>
-          
-        </div>
-        
-        <div class="article-card">
-          <div class="article-rank">4</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-상">중요</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="http://www.metroseoul.co.kr/article/20260329500281" target="_blank">삼성바이오로직스, 노조 &#39;파업&#39; 가결...창사 이래 첫 &#39;가동 중단&#39; 위기</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="http://www.metroseoul.co.kr/article/20260329500281" target="_blank">metroseoul</a>
-            
-            <span>2026.03.29 21:58</span>
-            
-            <a href="http://www.metroseoul.co.kr/article/20260329500281" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">삼성바이오로직스 노조, 창사 첫 파업 초읽기…생산 차질 우려 확산
-29일 삼성바이오로직스 노동조합에 따르면 쟁의행위 돌입 여부를 묻는 찬반 투표에서 전체 선거인 3678명 중 95.38%가 참여했고, 이 가운데 95.52%가 찬성했다.
-노조는 &#34;파업을 통해 임금 인상을 요구하고, 노동조건을 개선하겠다&#34;고 말했다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 노동조합</span>
-            
-          </div>
-          
-        </div>
-        
-        <div class="article-card">
-          <div class="article-rank">5</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-상">중요</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="https://www.slist.kr/news/articleView.html?idxno=727598" target="_blank">삼성바이오, 창사 이래 첫 파업 위기…찬성률 95%</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="https://www.slist.kr/news/articleView.html?idxno=727598" target="_blank">slist.kr</a>
-            
-            <span>2026.03.29 22:38</span>
-            
-            <a href="https://www.slist.kr/news/articleView.html?idxno=727598" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">삼성바이오, 창사 이래 첫 파업 위기…찬성률 95%
-삼성바이오로직스 노동조합이 2011년 창사 이래 처음으로 파업에 돌입할 가능성이 커지고 있다.
-이날 쟁의행위(파업)를 위한 찬반 투표를 진행한 결과 찬성표가 95.52%, 반대표가 4.48%인 것으로 집계됐다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 노동조합</span>
-            
-          </div>
-          
-        </div>
-        
-        <div class="article-card">
-          <div class="article-rank">6</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-중">보통</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="https://www.hani.co.kr/arti/society/labor/1251645.html" target="_blank">“기본급 보장” 택시노동자, 국회 국토위원장 사무실 앞 통신탑서 고공...</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="https://www.hani.co.kr/arti/society/labor/1251645.html" target="_blank">한겨레</a>
-            
-            <span>2026.03.29 18:56</span>
-            
-            <a href="https://www.hani.co.kr/arti/society/labor/1251645.html" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">“기본급 보장” 택시노동자, 국회 국토위원장 사무실 앞 통신탑서 고공농성
-고 분회장은 &#34;절박한 심정으로 이 선택을 할 수밖에 없었다&#34;며 &#34;최저임금법 취지를 무력화시키고, 택시 노동자를 죽이는 개악안 발의를 취소하라. 요구가 관철되지 않으면 내려갈 수 없다&#34;고 했다.
-택시지부는 여야 국토위원장과 면담을 요청했지만, 아직 답이 없다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 최저임금</span>
-            
-          </div>
-          
-        </div>
-        
-        <div class="article-card">
-          <div class="article-rank">7</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-중">보통</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="https://www.namdonews.com/news/articleView.html?idxno=905660" target="_blank">[전남 이주노동자 토론회 지상중계]윤용진 금속노조 전남조선하청지회...</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="https://www.namdonews.com/news/articleView.html?idxno=905660" target="_blank">namdonews</a>
-            
-            <span>2026.03.29 18:54</span>
-            
-            <a href="https://www.namdonews.com/news/articleView.html?idxno=905660" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">[전남 이주노동자 토론회 지상중계]윤용진 금속노조 전남조선하청지회장
-조사 결과 하청노동자의 상당수가 최저임금 인상에도 불구하고 사실상 임금이 동결된 상태에 놓여 있다.
-인력난의 본질은 노동력 부족이 아니라 낮은 임금과 열악한 노동조건에 있으며, 적정 임금과 안전이 보장된다면 노동자가 모일 수 있다는 것이다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 최저임금</span>
-            
-          </div>
-          
-        </div>
-        
-        <div class="article-card">
-          <div class="article-rank">8</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-중">보통</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="http://www.kwangju.co.kr/article.php?aid=1774782300797226006" target="_blank">“대학원생도 노동자”…‘갑질 사망’ 대학원생 산재 인정</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="http://www.kwangju.co.kr/article.php?aid=1774782300797226006" target="_blank">kwangju</a>
-            
-            <span>2026.03.29 20:10</span>
-            
-            <a href="http://www.kwangju.co.kr/article.php?aid=1774782300797226006" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">“대학원생도 노동자”…‘갑질 사망’ 대학원생 산재 인정
-공단의 산재 인정 판정은 근로기준법상 ‘근로자’로 인정받기 어려워 산재 보상의 사각지대에 놓였던 대학원생의 근로자성을 인정한 사례라는 해석이 나온다.
-그동안 대학원생은 ‘학생’과 ‘노동자’ 사이의 경계에 놓여 있었다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 근로기준법</span>
-            
-          </div>
-          
-        </div>
-        
-        <div class="article-card">
-          <div class="article-rank">9</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-중">보통</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="https://view.asiae.co.kr/article/2026032915050210421" target="_blank">&#34;헤어디자이너도 근로자&#34;…노동위 판단 이유는?</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="https://view.asiae.co.kr/article/2026032915050210421" target="_blank">view.asiae</a>
-            
-            <span>2026.03.29 15:06</span>
-            
-            <a href="https://view.asiae.co.kr/article/2026032915050210421" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">“헤어디자이너도 근로자”···대법원 이어 노동위원회도 인정
-29일 노동계에 따르면 충남지방노동위원회는 지난달 23일 인턴 A씨가 미용실을 상대로 낸 부당해고 구제신청 사건에서 &#34;헤어디자이너는 독립사업자가 아니라 근로기준법상 근로자로 보는 것이 타당하다&#34;고 판단했다.
-노동위원회에서 헤어디자이너의 근로자성을 인정한 사례는 이번이 처음이다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 부당해고</span>
-            
-          </div>
-          
-        </div>
-        
-        <div class="article-card">
-          <div class="article-rank">10</div>
-
-          <div style="margin-left: 8px;">
-            
-              <span class="importance-badge importance-중">보통</span>
-            
-          </div>
-
-          <div class="article-title">
-            <a href="https://www.khan.co.kr/article/202603291232001" target="_blank">“헤어디자이너도 근로자”···대법원 이어 노동위원회도 인정</a>
-          </div>
-
-          <div class="article-meta">
-            <a class="source-badge" href="https://www.khan.co.kr/article/202603291232001" target="_blank">경향신문</a>
-            
-            <span>2026.03.29 12:32</span>
-            
-            <a href="https://www.khan.co.kr/article/202603291232001" target="_blank" style="font-size:11px; color:#4a9de0; text-decoration:none; margin-left:auto;">원문 보기 →</a>
-          </div>
-
-          
-          <div class="article-summary">“헤어디자이너도 근로자”···대법원 이어 노동위원회도 인정
-29일 노동계에 따르면 충남지방노동위원회는 지난달 23일 인턴 A씨가 미용실을 상대로 낸 부당해고 구제신청 사건에서 &#34;헤어디자이너는 독립사업자가 아니라 근로기준법상 근로자로 보는 것이 타당하다&#34;고 판단했다.
-노동위원회에서 헤어디자이너의 근로자성을 인정한 사례는 이번이 처음이다.</div>
-          
-
-          
-          <div class="article-keywords">
-            
-            <span class="keyword-tag"># 부당해고</span>
-            
-          </div>
-          
-        </div>
-        
-      
-
-      <hr class="divider" />
-
-      <div style="font-size: 12px; color: #718096; text-align: center;">
-        본 메일은 <strong>노무 뉴스 자동 배포 툴</strong>이 자동 생성하였습니다.<br/>
-        LLM 모델: llama-3.3-70b-versatile &nbsp;|&nbsp; 수집 엔진: Naver
-      </div>
-    </div>
-
-    <div class="footer">
-      © 2026 노무 뉴스 다이제스트 &nbsp;|&nbsp;
-      문의: <a href="mailto:ydkkorea98">ydkkorea98</a>
+    <div class="stat-item">
+      <div class="stat-number">8</div>
+      <div class="stat-label">언론사</div>
     </div>
   </div>
+
+  <hr class="divider-thick" />
+
+  <!-- 기사 목록 -->
+  <div class="content">
+    <div class="section-label">주요 뉴스</div>
+
+    
+    <div class="articles-grid">
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-상">긴급</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="https://www.khan.co.kr/article/202603292048015" target="_blank">노동위, 헤어디자이너 근로자성 첫 인정</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="https://www.khan.co.kr/article/202603292048015" target="_blank">경향신문</a>
+          </span>
+          
+          <span>2026.03.29 20:48</span>
+          
+          <span style="margin-left:auto;">
+            <a href="https://www.khan.co.kr/article/202603292048015" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">노동위원회는 헤어디자이너의 근로자성을 인정했다. 이는 독립사업자가 아니라 근로기준법상 근로자로 보는 것이 타당하다는 판단이다. 이에 따라 헤어디자이너도 노동자로 인정받을 수 있다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">근로기준법</span>
+          
+        </div>
+        
+      </div>
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-상">긴급</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="https://www.hani.co.kr/arti/society/labor/1251647.html" target="_blank">“헤어디자이너도 노동자”…지노위, 미용실 원장 ‘사용자성’ 인정</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="https://www.hani.co.kr/arti/society/labor/1251647.html" target="_blank">한겨레</a>
+          </span>
+          
+          <span>2026.03.29 18:58</span>
+          
+          <span style="margin-left:auto;">
+            <a href="https://www.hani.co.kr/arti/society/labor/1251647.html" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">지노위는 미용실 원장의 사용자성을 인정했다. 이는 두 지점의 채용을 관리하는 등 실질적인 대표 역할을 하는 가운데 인턴들이 두 곳을 오가며 일했다는 점을 고려한 판단이다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">노무관리</span>
+          
+        </div>
+        
+      </div>
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-상">긴급</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="http://www.kwangju.co.kr/article.php?aid=1774782300797226006" target="_blank">“대학원생도 노동자”…‘갑질 사망’ 대학원생 산재 인정</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="http://www.kwangju.co.kr/article.php?aid=1774782300797226006" target="_blank">kwangju</a>
+          </span>
+          
+          <span>2026.03.29 20:10</span>
+          
+          <span style="margin-left:auto;">
+            <a href="http://www.kwangju.co.kr/article.php?aid=1774782300797226006" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">대학원생도 노동자로 인정받을 수 있다. 이는 산업재해로 인한 산재 인정 사례이다. 대학원생은 근로자로 인정받을 수 있어 산재 보상의 사각지대에 놓이지 않는다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">근로기준법</span>
+          
+        </div>
+        
+      </div>
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-중">주요</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="https://www.dkilbo.com/news/articleView.html?idxno=538942" target="_blank">5월 1일 노동절 법정 공휴일 지정 추진…행안소위 통과</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="https://www.dkilbo.com/news/articleView.html?idxno=538942" target="_blank">dkilbo</a>
+          </span>
+          
+          <span>2026.03.29 19:40</span>
+          
+          <span style="margin-left:auto;">
+            <a href="https://www.dkilbo.com/news/articleView.html?idxno=538942" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">노동절을 법정 공휴일로 지정하는 법안이 행안소위에서 통과했다. 이는 노동절을 유급휴일로 법제화한 이후 공무원, 교사, 택배기사 등 특수고용직 종사자에게도 휴일이 적용되지 않는 문제를 해결하기 위한 것이다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">근로기준법</span>
+          
+        </div>
+        
+      </div>
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-중">주요</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="https://www.slist.kr/news/articleView.html?idxno=727598" target="_blank">삼성바이오, 창사 이래 첫 파업 위기…찬성률 95%</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="https://www.slist.kr/news/articleView.html?idxno=727598" target="_blank">slist.kr</a>
+          </span>
+          
+          <span>2026.03.29 22:38</span>
+          
+          <span style="margin-left:auto;">
+            <a href="https://www.slist.kr/news/articleView.html?idxno=727598" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">삼성바이오로직스 노동조합이 창사 이래 처음으로 파업에 돌입할 가능성이 커지고 있다. 이는 쟁의행위 찬반 투표에서 찬성률이 95.52%로 압도적인 찬성으로 파업 명분이 확보됐다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">노동조합</span>
+          
+        </div>
+        
+      </div>
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-중">주요</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="http://www.metroseoul.co.kr/article/20260329500281" target="_blank">삼성바이오로직스, 노조 &#39;파업&#39; 가결...창사 이래 첫 &#39;가동 중단&#39; 위기</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="http://www.metroseoul.co.kr/article/20260329500281" target="_blank">metroseoul</a>
+          </span>
+          
+          <span>2026.03.29 21:58</span>
+          
+          <span style="margin-left:auto;">
+            <a href="http://www.metroseoul.co.kr/article/20260329500281" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">삼성바이오로직스 노조가 파업을 가결했다. 이는 창사 이래 첫 가동 중단 위기이다. 노조는 쟁의행위 찬반 투표에서 찬성률이 95.52%로 파업 명분을 확보했다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">노동조합</span>
+          
+        </div>
+        
+      </div>
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-중">주요</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="https://view.asiae.co.kr/article/2026032915050210421" target="_blank">&#34;헤어디자이너도 근로자&#34;…노동위 판단 이유는?</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="https://view.asiae.co.kr/article/2026032915050210421" target="_blank">view.asiae</a>
+          </span>
+          
+          <span>2026.03.29 15:06</span>
+          
+          <span style="margin-left:auto;">
+            <a href="https://view.asiae.co.kr/article/2026032915050210421" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">노동위원회는 헤어디자이너의 근로자성을 인정했다. 이는 독립사업자가 아니라 근로기준법상 근로자로 보는 것이 타당하다는 판단이다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">부당해고</span>
+          
+        </div>
+        
+      </div>
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-중">주요</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="https://www.khan.co.kr/article/202603291232001" target="_blank">“헤어디자이너도 근로자”···대법원 이어 노동위원회도 인정</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="https://www.khan.co.kr/article/202603291232001" target="_blank">경향신문</a>
+          </span>
+          
+          <span>2026.03.29 12:32</span>
+          
+          <span style="margin-left:auto;">
+            <a href="https://www.khan.co.kr/article/202603291232001" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">노동위원회는 헤어디자이너의 근로자성을 인정했다. 이는 독립사업자가 아니라 근로기준법상 근로자로 보는 것이 타당하다는 판단이다. 이에 따라 헤어디자이너도 노동자로 인정받을 수 있다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">부당해고</span>
+          
+        </div>
+        
+      </div>
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-하">참고</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="https://www.hani.co.kr/arti/society/labor/1251645.html" target="_blank">“기본급 보장” 택시노동자, 국회 국토위원장 사무실 앞 통신탑서 고공...</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="https://www.hani.co.kr/arti/society/labor/1251645.html" target="_blank">한겨레</a>
+          </span>
+          
+          <span>2026.03.29 18:56</span>
+          
+          <span style="margin-left:auto;">
+            <a href="https://www.hani.co.kr/arti/society/labor/1251645.html" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">택시노동자들이 기본급 보장을 요구하며 국회 국토위원장 사무실 앞에서 통신탑서 고공농성을 진행했다. 이는 최저임금법 취지를 무력화시키고 택시 노동자를 죽이는 개악안 발의를 취소하라는 요구이다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">최저임금</span>
+          
+        </div>
+        
+      </div>
+      
+      <div class="article-card">
+        <!-- 중요도 태그 -->
+        
+          <span class="importance-tag importance-하">참고</span>
+        
+
+        <!-- 제목 -->
+        <div class="article-title">
+          <a href="https://www.namdonews.com/news/articleView.html?idxno=905660" target="_blank">[전남 이주노동자 토론회 지상중계]윤용진 금속노조 전남조선하청지회...</a>
+        </div>
+
+        <!-- 바이라인 -->
+        <div class="article-byline">
+          <span class="byline-source">
+            <a href="https://www.namdonews.com/news/articleView.html?idxno=905660" target="_blank">namdonews</a>
+          </span>
+          
+          <span>2026.03.29 18:54</span>
+          
+          <span style="margin-left:auto;">
+            <a href="https://www.namdonews.com/news/articleView.html?idxno=905660" target="_blank" style="color:#555; font-size:10px; text-decoration:none; border-bottom: 1px solid #bbb;">원문 →</a>
+          </span>
+        </div>
+
+        <!-- 본문 요약 -->
+        
+        <div class="article-body">전남 이주노동자 토론회에서 윤용진 금속노조 전남조선하청지회장이 발언했다. 하청노동자의 상당수가 최저임금 인상에도 불구하고 사실상 임금이 동결된 상태에 놓여 있다.</div>
+        
+
+        <!-- 키워드 태그 -->
+        
+        <div class="article-keywords">
+          
+          <span class="kw-tag">최저임금</span>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    
+  </div>
+
+  <!-- 푸터 -->
+  <div class="footer">
+    <span>© 2026 노무 신문 · AI 자동 생성</span>
+    <span>수집 엔진: Naver</span>
+    <span>2026년 03월 29일</span>
+  </div>
+
+</div>
 </body>
 </html>
